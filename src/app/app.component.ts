@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Student } from './app.interface';
 
 @Component({
@@ -9,21 +9,52 @@ import { Student } from './app.interface';
   // template: `<h2>This is second header</h2>`
   // styles: ['h2 { color: red }']
 })
-export class AppComponent {
-  title = 'ng-test-app-123-123';
-
-  decimalNumber : number = 20;
-  isWinter: boolean = false;
-
-  ids: number[] = [2,3,4,5,6,7]
-
-  student: Student = {
-    age: 21,
-    name: 'Kate',
-    isStudent: true,
-    gpa: 3.12
-
+export class AppComponent 
+// implements 
+  // OnInit, 
+  // OnChanges, 
+  // DoCheck, 
+  // AfterContentInit, 
+  // AfterContentChecked,
+  // AfterViewInit,
+  // AfterViewChecked,
+  // OnDestroy 
+  {
+  title = 'Angular App!';
+  constructor() {
   }
+  // LifeCycle Hooks 
 
-
+  // ngOnInit(): void {
+  //   console.log('OnInit')
+  // }
+  // ngAfterContentInit(): void {
+  //   console.log('After Content Init')
+    
+  // }
+  // ngAfterContentChecked(): void {
+  //   console.log('After Content Checked')
+    
+  // }
+  // ngAfterViewChecked(): void {
+  //   console.log('After View Checked')
+    
+  // }
+  // ngAfterViewInit(): void {
+  //   console.log('After View Init')
+    
+  // }
+  // ngDoCheck(): void {
+  //   console.log('DoCheck')
+    
+  // }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   // console.log(changes['isWinter'].)
+  //   console.log('On Changes')
+    
+  // }
+  // ngOnDestroy(): void {
+  //   console.log('On Destroy')
+    
+  // }
 }

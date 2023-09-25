@@ -1,0 +1,69 @@
+<div class="data">
+    <!-- One Way Data Binding -->
+    <p>My number is: {{ decimalNumber }}</p> 
+    <p class="name">Winter: {{ isWinter }}</p> 
+    <div>
+      <p>Student Data: {{ student | json }}</p>
+      <span class="name">{{ student.name }}</span> <br>
+      <span class="age">{{ student.age }}</span> <br>
+      <span class="status">{{ student.isStudent }}</span> <br>
+      <span>{{ student.gpa }}</span> <br>
+    </div>
+  </div>
+  <br>
+  <br>
+  <!-- Two Way Data Binding -->
+  <div class="data">
+    {{ personData | json}}
+    <div>
+        <span style="background-color: beige;">First Name</span>
+        <input type="text" [(ngModel)]="personData.firstName">
+        <!-- (keyup)="onKeyUp($event)" -->
+    </div>
+    <br>
+    <div>
+        <span style="background-color: beige;">last Name</span>
+        <input type="text" [ngModel]="personData.lastName" (ngModelChange)="personData.lastName = $event" >
+    </div>
+    <br>
+    <div>
+        <span style="background-color: beige;">Age</span>
+        <input type="number" [(ngModel)]="personData.age">
+    </div>
+    <br>
+    <div>
+        <span style="background-color: beige;">Graduated</span>
+        <input type="checkbox" [(ngModel)]="personData.graduated">
+    </div>
+    <div>
+        <span>Favorite Subject:</span>
+        <!-- (change)="selectSubject($event)"  -->
+        <select [(ngModel)]="personData.subject">
+            <option value="null" selected disabled>--Choose Subject --</option>
+            <option value="angular">Angular</option>
+            <option value="react">React</option>
+            <option value="swift">Swift</option>
+        </select>
+    </div>
+    <div>
+        <span>Do you work as a web dev?</span>
+        <div>
+            <span>Yes</span>
+            <input type="radio" [(ngModel)]="personData.isWebDev" value="true">
+        </div>
+        <div>
+            <span>No</span>
+            <input type="radio" [(ngModel)]="personData.isWebDev" value="false" >
+
+        </div>
+    </div>
+    <button (click)="edit()">Submit Data</button>
+  </div>
+  <br>
+  <!-- ViewChild -->
+  <div id="paragraph" style="border: 1px solid #ccc; width: 250px; height: 100px; border-radius: 5px; margin: auto;">
+    <p #pEl>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero porro dolor temporibus in. Dignissimos officiis perspiciatis</p>
+
+  </div>
+
+
