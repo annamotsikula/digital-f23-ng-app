@@ -30,3 +30,19 @@ h1 {
 .status {
     @include main-text(red, orange);
 }
+
+.content {
+    margin-top: 1rem;
+    // display: flex;
+    // justify-content: space-around;
+
+
+}
+.left-container, .right-container, .child-container {
+    width: 40%;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    &:not(.child-container, .right-container) {
+        height: 300px;
+    }
+}

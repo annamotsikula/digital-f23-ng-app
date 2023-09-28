@@ -1,5 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { Student } from './app.interface';
+import { Student } from './helpers/interfaces/app.interface';
 
 @Component({
   selector: 'app-root',
