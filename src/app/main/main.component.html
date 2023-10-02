@@ -1,69 +1,68 @@
-<div class="data">
-    <!-- One Way Data Binding -->
-    <p>My number is: {{ decimalNumber }}</p> 
-    <p class="name">Winter: {{ isWinter }}</p> 
-    <div>
-      <p>Student Data: {{ student | json }}</p>
-      <span class="name">{{ student.name }}</span> <br>
-      <span class="age">{{ student.age }}</span> <br>
-      <span class="status">{{ student.isStudent }}</span> <br>
-      <span>{{ student.gpa }}</span> <br>
-    </div>
-  </div>
-  <br>
-  <br>
-  <!-- Two Way Data Binding -->
-  <div class="data">
-    {{ personData | json}}
-    <div>
-        <span style="background-color: beige;">First Name</span>
-        <input type="text" [(ngModel)]="personData.firstName">
-        <!-- (keyup)="onKeyUp($event)" -->
-    </div>
+<div>
+    <h3>Pipes</h3>
+    <p>Custom Number Initial Value: {{ customNumber }}</p>
+    <p>{{ customNumber | number: '2.2-3' }}</p>
+    <p>{{ customNumber | number: '5.1-2' }}</p>
+    <p>{{ customNumber | percent }}</p>
+    <p>{{ customNumber | currency: 'EUR' : "code" }}</p>
     <br>
-    <div>
-        <span style="background-color: beige;">last Name</span>
-        <input type="text" [ngModel]="personData.lastName" (ngModelChange)="personData.lastName = $event" >
-    </div>
+    <p>Custom Sting Name: {{title}}</p>
+    <p>{{ title | uppercase }}</p>
+    <p>{{ title | lowercase }}</p>
+    <p>{{ title | titlecase }}</p>
+    <p>{{ title | slice: 7 }}</p>
+    <p>{{ title | slice: 7-15 }}</p>
     <br>
-    <div>
-        <span style="background-color: beige;">Age</span>
-        <input type="number" [(ngModel)]="personData.age">
-    </div>
-    <br>
-    <div>
-        <span style="background-color: beige;">Graduated</span>
-        <input type="checkbox" [(ngModel)]="personData.graduated">
-    </div>
-    <div>
-        <span>Favorite Subject:</span>
-        <!-- (change)="selectSubject($event)"  -->
-        <select [(ngModel)]="personData.subject">
-            <option value="null" selected disabled>--Choose Subject --</option>
-            <option value="angular">Angular</option>
-            <option value="react">React</option>
-            <option value="swift">Swift</option>
-        </select>
-    </div>
-    <div>
-        <span>Do you work as a web dev?</span>
-        <div>
-            <span>Yes</span>
-            <input type="radio" [(ngModel)]="personData.isWebDev" value="true">
+    <p>Custom Date Value: {{ today }} </p>
+    <p>{{ today | date }}</p>
+    <p>{{ today | date: 'medium' }}</p>
+    <p>{{ today | date: 'shortTime' }}</p>
+    <p>{{ today | date: 'full' }}</p>
+    <b></b>
+    <p>Object Value: </p>
+    <p>{{bookObj | json }}</p>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let book of bookArray">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between">
+            <img [src]="book.imageLink" class="card-img-top book-img" alt="..." />
+            <div class="">
+              <p class="chip" [ngClass]="book.quantity > 5 ? 'instock' : 'alert'">
+                {{ book.quantity > 5 ? "In Stock" : "Few Items Left" }}
+              </p>
+              <span class="price" [ngClass]="{ onsale: book.isOnSale }">{{
+                book.price
+              }}</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{ book.title }}</h4>
+            <h6>{{ book.author }}</h6>
+            <p class="card-text">{{ book.description }}</p>
+            <p
+              [ngStyle]="{
+                'background-color': book.pages > 500 ? 'green' : 'orange'
+              }"
+            >
+              Pages: {{ book.pages }}
+            </p>
+            <div class="d-flex mb-2">
+              <span>Origin: </span>
+              <ng-container [ngSwitch]="book.year">
+                  <span class="ms-2" *ngSwitchCase="1635">17th</span>
+                  <span class="ms-2 " *ngSwitchCase="1735">18th</span>
+                  <span class="ms-2" *ngSwitchCase="1835">19th</span>
+                  <span class="ms-2" *ngSwitchCase="1935">20th</span>
+              </ng-container>
+            </div>
+            <a (click)="visitLink(book.link)" class="btn btn-primary">Visit Link</a>
+          </div>
         </div>
-        <div>
-            <span>No</span>
-            <input type="radio" [(ngModel)]="personData.isWebDev" value="false" >
-
-        </div>
     </div>
-    <button (click)="edit()">Submit Data</button>
-  </div>
-  <br>
-  <!-- ViewChild -->
-  <div id="paragraph" style="border: 1px solid #ccc; width: 250px; height: 100px; border-radius: 5px; margin: auto;">
-    <p #pEl>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero porro dolor temporibus in. Dignissimos officiis perspiciatis</p>
-
-  </div>
-
-
+</div>

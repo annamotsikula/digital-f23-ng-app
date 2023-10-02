@@ -4,11 +4,13 @@ $main-color-dark: #1DA799;
 h1 {
     color: $main-color;
 }
+
 .data {
     padding: 5px 1rem;
     border: 1px solid #000;
     border-radius: 5px;
     text-align: center;
+
     div {
         .name {
             color: $main-color-dark;
@@ -24,9 +26,44 @@ h1 {
 }
 
 .age {
-   @include main-text($main-color, $main-color-dark);
+    @include main-text($main-color, $main-color-dark);
 }
 
 .status {
     @include main-text(red, orange);
+}
+
+.card {
+    .book-img {
+        width: 140px;
+    }
+
+    .price {
+        font-size: 20px;
+        text-align: end;
+        &.onsale {
+            color: red;
+        }
+    }
+
+    .chip {
+        padding: 3px 17px;
+        border-radius: 25px;
+        border: 1px solid #ccc;
+        font-weight: 500;
+        color: #000;
+
+        &.alert {
+            background-color: orange;
+            border: 1px solid #e3aa7f;
+            color: white;
+        }
+
+        &.instock {
+            background-color: #1fb11f;
+            border: 1px solid #4c833f;
+            color: white;
+        }
+    }
+
 }

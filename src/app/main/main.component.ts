@@ -1,63 +1,42 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Student } from '../app.interface';
-
+import { Book } from '../core/book.interface';
+import bookdata from '../core/books.json'
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit, AfterViewInit {
-  decimalNumber : number = 20;
-  isWinter: boolean = false;
- 
-  ids: number[] = [2,3,4,5,6,7]
- 
-  student: Student = {
-     age: 21,
-     name: 'Kate',
-     isStudent: true,
-     gpa: 3.12
- 
+export class MainComponent {
+  bookJSON = {
+    "author": "Honor\u00e9 de Balzac",
+    "country": "France",
+    "imageLink": "https://m.media-amazon.com/images/I/81jmppwxtSL._AC_UF1000,1000_QL80_.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Le_P%C3%A8re_Goriot\n",
+    "pages": 443,
+    "title": "Le P\u00e8re Goriot",
+    "year": 1835,
+    "price": 10,
+    "quantity": 4,
+    "description": "Lorem ipsum dolor sit amet. Aut sunt totam aut optio dolores id quia odio non illum aliquid aut possimus officiis aut perferendis temporibus. Sit consequatur inventore ut cumque esse ut iusto maxime. Et iure rerum qui praesentium consequuntur ut voluptatum tempore et fugiat consequatur. Ut odio ipsam eum velit culpa ut reiciendis blanditiis ea numquam velit.",
+    "isOnSale": true
   }
-  personData = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 24,
-  graduated: false,
-  subject: null || "",
-  isWebDev: false
-  }
+  bookArray: Book[] = bookdata
+  bookObj!: Book;
+  
+
+  customNumber: number = 3.7845452542
+  title: string = 'Angular tutor lecture N:5'
+  today: Date = new Date()
+
   constructor() {
-   
-  }
-  @ViewChild('pEl') pElement!: ElementRef
-
-
-
-
-  ngOnInit(): void {
-    console.log(this.pElement)
-  }
-  ngAfterViewInit(): void {
-    const p = this.pElement.nativeElement as HTMLElement
-    p.style.backgroundColor = 'red'
-    p.style.fontSize = '16px'
+    this.bookObj = JSON.parse(JSON.stringify(this.bookJSON))
+    console.log(this.bookArray)
   }
 
-  edit() {
-  console.log(this.personData)
+  visitLink(link: string) {
+   window.open(link, '_blank')
+    
   }
-  onKeyUp(ev: Event) {
-    const event = ev.target as HTMLInputElement
-    console.log("Event Triggered", event.value)
-  }
-
-  selectSubject(ev: any) {
-    const selected = ev.target as HTMLSelectElement;
-    this.personData.subject = selected.value
-
-  }
-
-
-
 }
