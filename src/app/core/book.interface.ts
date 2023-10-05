@@ -10,5 +10,7 @@ export interface Book {
     description: string;
     quantity: number;
     price: number;
-    isOnSale: boolean
+    isOnSale: boolean,
+    salePrice?: number,
+    id: number
 }

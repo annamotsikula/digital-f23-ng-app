@@ -1,0 +1,43 @@
+<div class="card p-3">
+    <div class="cover mt-2">
+      <img [src]="book.imageLink" class="card-img-top book-img" alt="..." />
+    </div>
+    <div class="card-body">
+      <div class="d-flex justify-content-between mb-2 align-items-center">
+        <div class="title">
+          <h6>{{ book.author | uppercase }}</h6>
+          <h4 class="card-title">{{ book.title | titlecase }}</h4>
+        </div>
+        <div class="price-container">
+          <span class="price fs-3 fw-bold" [ngClass]="{ onsale: book.isOnSale }">{{book.price | currency: 'EUR' : 'symbol' : '1.0-2' }}</span>
+          <span class="price fs-6 fw-bold" *ngIf="book.salePrice">{{book.salePrice | currency: 'EUR' : 'symbol' : '1.0-2' }}</span>
+
+        </div>
+      </div>
+      <div>
+        <h6 class="mb-2">description</h6>
+        <p class="card-text">{{ book.description | truncate: 16 }}</p>
+        <p [ngStyle]="{
+            'background-color': book.pages > 500 ? 'green' : 'orange'
+          }">Pages: {{ book.pages }}
+        </p>
+        <span class="badge border rounded-pill" 
+              [ngClass]="book.quantity > 5 ? 
+              'bg-success-subtle border border-success-subtle text-success-emphasis' : 
+              'bg-warning-subtle border-warning-subtle text-warning-emphasis'">
+          {{ book.quantity > 5 ? "In Stock" : "Few Items Left" }}
+        </span>
+      </div>
+      <div class="d-flex mb-2">
+        <span>Origin: </span>
+        <ng-container [ngSwitch]="book.year">
+          <span class="ms-2" *ngSwitchCase="1635">17th</span>
+          <span class="ms-2" *ngSwitchCase="1735">18th</span>
+          <span class="ms-2" *ngSwitchCase="1835">19th</span>
+          <span class="ms-2" *ngSwitchCase="1935">20th</span>
+        </ng-container>
+      </div>
+
+      <a (click)="onClick()" class="btn btn-primary">Visit Link</a>
+    </div>
+</div>
