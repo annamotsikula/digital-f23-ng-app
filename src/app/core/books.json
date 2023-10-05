@@ -8,21 +8,21 @@
         "pages": 443,
         "title": "Le P\u00e8re Goriot",
         "year": 1835,
-        "price": 10,
-        "quantity": 4,
+        "price": 0.52,
+        "quantity": 12,
         "description": "Lorem ipsum dolor sit amet. Aut sunt totam aut optio dolores id quia odio non illum aliquid aut possimus officiis aut perferendis temporibus. Sit consequatur inventore ut cumque esse ut iusto maxime. Et iure rerum qui praesentium consequuntur ut voluptatum tempore et fugiat consequatur. Ut odio ipsam eum velit culpa ut reiciendis blanditiis ea numquam velit.",
         "isOnSale": true
     },
     {
       "author": "Hans Christian Andersen",
       "country": "Denmark",
-      "imageLink": "images/fairy-tales.jpg",
+      "imageLink": "https://images.penguinrandomhouse.com/cover/700jpg/9780525626060",
       "language": "Danish",
       "link": "https://en.wikipedia.org/wiki/Fairy_Tales_Told_for_Children._First_Collection.\n",
       "pages": 784,
       "title": "Fairy tales",
       "year": 1836,
-      "price": 10,
+      "price": 10.47,
         "quantity": 4,
         "description": "Lorem ipsum dolor sit amet. Aut sunt totam aut optio dolores id quia odio non illum aliquid aut possimus officiis aut perferendis temporibus. Sit consequatur inventore ut cumque esse ut iusto maxime. Et iure rerum qui praesentium consequuntur ut voluptatum tempore et fugiat consequatur. Ut odio ipsam eum velit culpa ut reiciendis blanditiis ea numquam velit.",
         "isOnSale": true
@@ -30,7 +30,7 @@
     {
       "author": "Dante Alighieri",
       "country": "Italy",
-      "imageLink": "images/the-divine-comedy.jpg",
+      "imageLink": "https://m.media-amazon.com/images/I/910RVMMAJpL._AC_UF1000,1000_QL80_.jpg",
       "language": "Italian",
       "link": "https://en.wikipedia.org/wiki/Divine_Comedy\n",
       "pages": 928,
@@ -44,7 +44,7 @@
     {
       "author": "Unknown",
       "country": "Sumer and Akkadian Empire",
-      "imageLink": "images/the-epic-of-gilgamesh.jpg",
+      "imageLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzlRQ19VyA6ymoBvTV-LMkmXnJ6AFGftVWJA&usqp=CAU",
       "language": "Akkadian",
       "link": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh\n",
       "pages": 160,
@@ -58,7 +58,7 @@
     {
       "author": "Unknown",
       "country": "Achaemenid Empire",
-      "imageLink": "images/the-book-of-job.jpg",
+      "imageLink": "https://cdn.kobo.com/book-images/945b5eae-7768-4957-b36a-95f23dc5a86f/1200/1200/False/the-book-of-job-49.jpg",
       "language": "Hebrew",
       "link": "https://en.wikipedia.org/wiki/Book_of_Job\n",
       "pages": 176,
@@ -72,7 +72,7 @@
     {
       "author": "Unknown",
       "country": "India/Iran/Iraq/Egypt/Tajikistan",
-      "imageLink": "images/one-thousand-and-one-nights.jpg",
+      "imageLink": "https://m.media-amazon.com/images/I/81ojGyv4KXL._AC_UF1000,1000_QL80_.jpg",
       "language": "Arabic",
       "link": "https://en.wikipedia.org/wiki/One_Thousand_and_One_Nights\n",
       "pages": 288,
@@ -86,7 +86,7 @@
     {
       "author": "Unknown",
       "country": "Iceland",
-      "imageLink": "images/njals-saga.jpg",
+      "imageLink": "https://wordsworth-editions.com/wp-content/uploads/2022/03/9781853267857.jpg",
       "language": "Old Norse",
       "link": "https://en.wikipedia.org/wiki/Nj%C3%A1ls_saga\n",
       "pages": 384,
@@ -100,7 +100,7 @@
     {
       "author": "Jane Austen",
       "country": "United Kingdom",
-      "imageLink": "images/pride-and-prejudice.jpg",
+      "imageLink": "https://almabooks.com/wp-content/uploads/2016/10/9781847493699.jpg",
       "language": "English",
       "link": "https://en.wikipedia.org/wiki/Pride_and_Prejudice\n",
       "pages": 226,
@@ -114,7 +114,7 @@
     {
       "author": "Honor\u00e9 de Balzac",
       "country": "France",
-      "imageLink": "images/le-pere-goriot.jpg",
+      "imageLink": "https://www.honorechampion.com/24400-thickbox_default/book-08532233.jpg",
       "language": "French",
       "link": "https://en.wikipedia.org/wiki/Le_P%C3%A8re_Goriot\n",
       "pages": 443,
