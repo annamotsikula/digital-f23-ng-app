@@ -1,11 +1,8 @@
 <header class="d-flex justify-content-center py-3">
   <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a href="#" class="nav-link active" aria-current="page">Home</a>
+    <li class="nav-item" *ngFor="let nav of navigationData">
+      <a [routerLink]="nav.path" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" aria-current="page">{{nav.title}}</a>
     </li>
-    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-  </ul>
+ </ul>
+<button class="btn btn-info" (click)="gotoAuth()">Sign In</button>
 </header>

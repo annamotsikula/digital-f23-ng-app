@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   imgLink = "https://i.redd.it/oktga8avhhv51.png"
+
+  constructor(private _router: Router) {}
+
   ngOnInit(): void {
-    // console.log('HEADER On init')
   }
 
+  navigationData : {title: string, path: string}[] = [
+    {
+      title: 'Main',
+      path: '/'
+    },
+    {
+      title: 'Home',
+      path: '/home'
+    },
+  ]
+
+  gotoAuth() {
+    this._router.navigate(['sign-in'])
+  }
 }

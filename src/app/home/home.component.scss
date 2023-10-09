@@ -1,0 +1,31 @@
+$main-color: #33FFAC;
+$main-color-dark: #1DA799;
+h1 {
+    color: $main-color;
+}
+.data {
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    text-align: center;
+    div {
+        .name {
+            color: $main-color-dark;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+@mixin main-text($color, $bgc) {
+    background-color: $bgc;
+    color: $color;
+}
+
+.age {
+   @include main-text($main-color, $main-color-dark);
+}
+
+.status {
+    @include main-text(red, orange);
+}

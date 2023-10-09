@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
-import { FormsModule } from '@angular/forms';
-import { TruncatePipe } from './core/truncate.pipe';
-import { BookCardComponent } from './books/book-card/book-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { AppRoutingRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    MainComponent,
-    TruncatePipe,
-    BookCardComponent
+    SignInComponent,
+    SignUpComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
