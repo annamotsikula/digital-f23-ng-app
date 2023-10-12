@@ -1,1 +1,96 @@
-<p>sign-up works!</p>
+<div class="form-signin w-25 m-auto mt-4">
+  <form class="form" [formGroup]="signUpForm" (submit)="submit()">
+    <div class="mb-3">
+      <label class="form-label">First Name</label>
+      <input type="text" class="form-control" formControlName="firstName" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName" />
+    </div>
+    <div class="alert alert-danger" *ngIf="lastname.errors && lastname.touched">
+        <div *ngIf="lastname.errors['required']">
+            <span class="text-danger">This field is required</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Personal Id</label>
+        <input type="text" class="form-control" formControlName="personalId" />
+        <div class="alert alert-danger" *ngIf="personalId.errors && (personalId.touched)">
+            <div *ngIf="personalId.errors['required']">
+                <span class="text-danger">This field is required</span>
+            </div>
+            <div *ngIf="personalId.errors['minlength']">
+                <span class="text-danger">Minimum required symbols are {{personalId.errors['minlength']['requiredLength']}}</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Age</label>
+      <input type="number" class="form-control" formControlName="age" />
+    </div>
+    <div class="fg mb-3">
+      <span>Address</span>
+      <div formGroupName="address" class="d-flex flex-wrap">
+        <div class="mb-3 w-50">
+          <label class="form-label">City</label>
+          <input type="text" class="form-control" formControlName="city" />
+        </div>
+        <div class="mb-3 w-50">
+          <label class="form-label">Street</label>
+          <input type="text" class="form-control" formControlName="street" />
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 fa">
+      <div class="d-flex justify-content-between mb-2">
+        <span>Contact</span>
+        <button
+          class="btn btn-outline-info"
+          type="button"
+          (click)="addNewContact()"
+        >
+          Add +
+        </button>
+      </div>
+      <div formArrayName="contact">
+        <div
+          class="d-flex flex-wrap fg mb-2"
+          *ngFor="let c of contactArray.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <div class="mb-3 w-50">
+            <label class="form-label">Type of Contact</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="contactType"
+            />
+          </div>
+          <div class="mb-3 w-50">
+            <label class="form-label">Enter contact value</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="contactValue"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <p>Do you have personal email?</p>
+      <button type="button" class="btn btn-warning me-2" (click)="addNewControl('email', 'test@gmail.com')">Add Email</button>
+      <div>
+    </div>
+    
+</div>
+<button type="submit" class="btn btn-primary">Sign Up</button>
+<button class="btn btn-danger ms-2" type="button" (click)="reset()">
+    Reset
+</button>
+</form>
+<button type="button"  class="btn btn-primary" (click)="updateValue()">Update Form Control</button>
+<input type="text" class="mt-2 ms-2" [(ngModel)]="inputText">
+</div>
