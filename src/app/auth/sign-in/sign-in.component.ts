@@ -18,12 +18,12 @@ export class SignInComponent {
   constructor(private _router: Router) {}
 
   onSignIn(form: NgForm) {
-    console.log(form)
+    // console.log(form)
 
     // if(this.form.value.email !== "" && this.form.value.password !== "") {
-    //   this._router.navigate(['main'])
+      this._router.navigate(['main'])
     // } else {
-    //   alert('Please Fill all the fields')
+      // alert('Please Fill all the fields')
     // }
   }
 

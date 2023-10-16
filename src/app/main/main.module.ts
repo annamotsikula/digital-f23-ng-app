@@ -10,6 +10,7 @@ import { BookCardComponent } from '../books/book-card/book-card.component';
 import { TruncatePipe } from '../core/pipes/truncate.pipe';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
+import { DashboardComponent } from '../products/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MainComponent } from './main.component';
     Child1Component,
     Child2Component,
     BookCardComponent,
+    DashboardComponent
   ],
   imports: [
     MainRoutingModule,

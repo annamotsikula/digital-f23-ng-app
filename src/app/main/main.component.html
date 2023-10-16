@@ -2,7 +2,7 @@
 <div class="container mt-4">
   <p>Main Component Works</p>
   
-  <div class="mt-2 mb-2">
+  <!-- <div class="mt-2 mb-2">
     <input type="number" [(ngModel)]="bookid">
     <button (click)="searchBook()">Find Book</button>
   </div>
@@ -11,4 +11,6 @@
       <app-book-card [book]="book" (clickEmitter)="visitLink(book.link)"></app-book-card>
     </div>
   </div>
-</div>
+</div> -->
+
+<router-outlet></router-outlet>

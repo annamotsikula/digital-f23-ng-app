@@ -17,11 +17,15 @@ export class HeaderComponent implements OnInit {
   navigationData : {title: string, path: string}[] = [
     {
       title: 'Main',
-      path: '/'
+      path: '/main'
     },
     {
       title: 'Home',
       path: '/home'
+    },
+    {
+      title: 'Products',
+      path: '/main/products'
     },
   ]
 

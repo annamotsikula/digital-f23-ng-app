@@ -10,7 +10,7 @@ export class BookService {
   constructor() { 
     this._books = JSON.parse(JSON.stringify(bookdata))
     this._books.map((book, index) => book.id = index)
-    console.log(this._books)
+    // console.log(this._books)
   }
 
   getBookData(): Book[] {
