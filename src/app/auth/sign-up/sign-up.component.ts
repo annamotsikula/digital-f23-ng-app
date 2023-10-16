@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CharacterOnly } from 'src/app/core/helpers/custom-validator';
 
 type SignUp = {
-  firstName: FormControl<string|null>;
+  firstName: FormControl<string | null>;
   lastName: FormControl;
   age: FormControl;
   personalId: FormControl;
   address: FormGroup;
-  contact:  FormArray;
+  contact: FormArray;
   email?: FormControl;
 }
 
@@ -22,10 +22,23 @@ export class SignUpComponent {
 
   inputText: string = ""
 
-  constructor() {
+  constructor(private _fb: FormBuilder) {
+    const signUpFormBuilder = this._fb.group({
+      firstName: this._fb.nonNullable.control('John', [Validators.required, CharacterOnly]),
+      lastName: this._fb.nonNullable.control(null, [Validators.required]),
+      contact: this._fb.array(
+        [this._fb.group({ contactType: this._fb.control(null) })]
+      ),
+      address: this._fb.group({
+        street: this._fb.control(''),
+        city: this._fb.control(''),
+
+      })
+    })
+    console.log(signUpFormBuilder)
     this.signUpForm = new FormGroup<SignUp>({
-      firstName: new FormControl({value: 'John', disabled: true}, { nonNullable: true , validators: [Validators.required, CharacterOnly]}),
-      lastName: new FormControl<string|null>(null, [Validators.required]),
+      firstName: new FormControl({ value: 'John', disabled: true }, { nonNullable: true, validators: [Validators.required, CharacterOnly] }),
+      lastName: new FormControl<string | null>(null, [Validators.required]),
       age: new FormControl<number>(5, [Validators.required, Validators.min(18)]),
       personalId: new FormControl(null, [Validators.required, Validators.minLength(10)]),
       address: new FormGroup({
@@ -48,10 +61,10 @@ export class SignUpComponent {
   }
 
   submit() {
-    if(this.signUpForm.valid) {
+    if (this.signUpForm.valid) {
       console.log(this.signUpForm);
       console.log(this.signUpForm.getRawValue())
-  
+
     } else {
       alert("The form is not valid")
     }
