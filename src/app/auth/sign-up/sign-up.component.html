@@ -2,12 +2,22 @@
   <form class="form" [formGroup]="signUpForm" (submit)="submit()">
     <div class="mb-3">
       <label class="form-label">First Name</label>
-      <input type="text" class="form-control" formControlName="firstName" />
+      <input type="text" class="form-control" formControlName="firstName" />         
+    <div class="alert alert-danger" *ngIf="firstname.errors && firstname.touched">
+      <div *ngIf="firstname.errors['required']">
+          <span class="text-danger">This field is required</span>
+      </div>
+      <div *ngIf="firstname.errors['charOnly']">
+        <span class="text-danger">Please use only valid chatacters (num/alphabet)</span>
     </div>
+  </div>
+    </div>
+
     <div class="mb-3">
       <label class="form-label">Last Name</label>
       <input type="text" class="form-control" formControlName="lastName" />
     </div>
+   
     <div class="alert alert-danger" *ngIf="lastname.errors && lastname.touched">
         <div *ngIf="lastname.errors['required']">
             <span class="text-danger">This field is required</span>

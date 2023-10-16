@@ -7,7 +7,7 @@ import { HomeComponent } from '../home/home.component';
 import { Child1Component } from '../home/child/child.component';
 import { Child2Component } from '../home/child2/child2.component';
 import { BookCardComponent } from '../books/book-card/book-card.component';
-import { TruncatePipe } from '../core/truncate.pipe';
+import { TruncatePipe } from '../core/pipes/truncate.pipe';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
 

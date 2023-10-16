@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CharacterOnly } from 'src/app/core/helpers/custom-validator';
 
 type SignUp = {
   firstName: FormControl<string|null>;
@@ -23,7 +24,7 @@ export class SignUpComponent {
 
   constructor() {
     this.signUpForm = new FormGroup<SignUp>({
-      firstName: new FormControl('John', { nonNullable: true }),
+      firstName: new FormControl({value: 'John', disabled: true}, { nonNullable: true , validators: [Validators.required, CharacterOnly]}),
       lastName: new FormControl<string|null>(null, [Validators.required]),
       age: new FormControl<number>(5, [Validators.required, Validators.min(18)]),
       personalId: new FormControl(null, [Validators.required, Validators.minLength(10)]),
@@ -42,16 +43,14 @@ export class SignUpComponent {
         })
       ])
     })
-
-  
-   
     // this.signUpForm.setValue() // მთლიანი ფორმის განახლება
     // this.signUpForm.patchValue() // რომელიმე ველის განახლება
   }
 
   submit() {
     if(this.signUpForm.valid) {
-      console.log(this.signUpForm.value);
+      console.log(this.signUpForm);
+      console.log(this.signUpForm.getRawValue())
   
     } else {
       alert("The form is not valid")
@@ -87,6 +86,9 @@ export class SignUpComponent {
   }
   get lastname() {
     return this.signUpForm.get('lastName') as FormControl
+  }
+  get firstname() {
+    return this.signUpForm.get('firstName') as FormControl
   }
 
   get personalId() {

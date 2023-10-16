@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,12 +17,14 @@ export class SignInComponent {
 
   constructor(private _router: Router) {}
 
-  onSignIn() {
-    if(this.form.value.email !== "" && this.form.value.password !== "") {
-      this._router.navigate(['main'])
-    } else {
-      alert('Please Fill all the fields')
-    }
+  onSignIn(form: NgForm) {
+    console.log(form)
+
+    // if(this.form.value.email !== "" && this.form.value.password !== "") {
+    //   this._router.navigate(['main'])
+    // } else {
+    //   alert('Please Fill all the fields')
+    // }
   }
 
 }

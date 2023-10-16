@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../core/book.interface';
-import bookdata from '../core/books.json'
+import { Book } from '../core/interfaces/book.interface';
+import bookdata from '../core/jsons/books.json'
 import { BookService } from '../core/services/book.service';
 import { LocalStorageSevice } from '../core/services/storage.service';
 @Component({
