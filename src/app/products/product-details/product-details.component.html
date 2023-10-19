@@ -1,0 +1,26 @@
+<div class="container">
+    <a routerLink="../">Go back</a> <br>
+    <div class="d-flex w-75 m-auto" *ngIf="product">
+        <div class="images">
+            <img [src]="product.thumbnail" alt="Main Photo" class="main-img">
+            <div class="img-preview d-flex" >
+                <img [src]="img" alt="" *ngFor="let img of product.images">
+            </div>
+        </div>
+        <div class="ms-4 information">
+            <h3>{{ product.title | titlecase }}</h3>
+            <div>
+                <p>{{product.description}}</p>
+                <span>{{product.price | currency }}</span>
+                <span>Rating: {{product.rating }}</span>
+                <span>Category: {{product.category  }}</span>
+                <span>Stock : {{product.stock  }}</span>
+                <span>Discount : {{product.discountPercentage }}</span>
+                <span>New Discount price : {{product.discountPrice | currency }}</span>
+            </div>
+    
+            
+        </div>
+    
+    </div>
+</div>

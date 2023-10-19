@@ -1,14 +1,10 @@
 <p>dashboard works!</p>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3">
-    <div class="col-sm-6" *ngFor="let product of productList">
-        <div class="card" style="width: 18rem;">
-            <img [src]="product.images[0]" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{product.title}}</h5>
-              <p class="card-text">{{product.description}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-      <!-- <app-book-card [book]="book" (clickEmitter)="visitLink(book.link)"></app-book-card> -->
-    </div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3">
+  <div class="col-sm-6" *ngFor="let product of productList">
+    <app-product-card
+      [product]="product"
+      (productClicked)="onClick($event, product.id)"
+      (newValue)="upateProduct($event, product.id)"
+    ></app-product-card>
   </div>
+</div>

@@ -1,7 +1,8 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { ProductList } from "../interfaces/product.interface";
+import { Observable, map, tap } from "rxjs";
+import { Product, ProductList } from "../interfaces/product.interface";
+import { BASE_URL } from "../constants/constants";
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +14,31 @@ export class ProductService {
     }
 
 
-    getProducts(): Observable<ProductList> {
-        return this._http.get<ProductList>('https://dummyjson.com/products')
+    getProducts(): Observable<Product[]> {
+        return this._http.get<ProductList>(`${BASE_URL}/products`).pipe(
+            map(data => data.products)
+        )
+    }    
+
+    getProductById(id: number): Observable<Product> {
+        return this._http.get<Product>(`${BASE_URL}/products/${id}`).pipe(
+            map(data => {
+                const newPrice = data.price - (data.price * data.discountPercentage / 100)
+                data.discountPrice = newPrice
+                return data
+            })
+        )
+    }
+
+    deleteProduct(id: number): Observable<any> {
+        return this._http.delete(`${BASE_URL}/products/${id}`)
+    }
+
+    updateProduct(id: number, updatedValue: string) {
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'application/json');
+        return this._http.put(`${BASE_URL}/products/${id}`, {
+            description: updatedValue
+        }, { headers })
     }
 }

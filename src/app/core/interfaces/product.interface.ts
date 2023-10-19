@@ -1,6 +1,6 @@
 export interface ProductList {
     limit: number;
-    products: any[];
+    products: Product[];
     skip: number;
     total: number
 }
@@ -16,5 +16,6 @@ export interface Product {
     category: string;
     price: number;
     stock: number;
-    title: number
+    title: string;
+    discountPrice?: number
 }

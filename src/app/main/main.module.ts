@@ -8,11 +8,12 @@ import { Child1Component } from '../home/child/child.component';
 import { Child2Component } from '../home/child2/child2.component';
 import { BookCardComponent } from '../books/book-card/book-card.component';
 import { TruncatePipe } from '../core/pipes/truncate.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
 import { ProductCardComponent } from '../products/product-card/product-card.component';
 import { BookDashboardComponent } from '../books/book-dashboard/book-dashboard.component';
 import { ProductDashboardComponent } from '../products/dashboard/dashboard.component';
+import { ProductDetailsComponent } from '../products/product-details/product-details.component';
 
 
 @NgModule({
@@ -27,11 +28,13 @@ import { ProductDashboardComponent } from '../products/dashboard/dashboard.compo
     BookDashboardComponent,
     ProductCardComponent,
     ProductDashboardComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     MainRoutingModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   exports: [HeaderComponent]
 })
