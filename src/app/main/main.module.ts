@@ -10,7 +10,9 @@ import { BookCardComponent } from '../books/book-card/book-card.component';
 import { TruncatePipe } from '../core/pipes/truncate.pipe';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
-import { DashboardComponent } from '../products/dashboard/dashboard.component';
+import { ProductCardComponent } from '../products/product-card/product-card.component';
+import { BookDashboardComponent } from '../books/book-dashboard/book-dashboard.component';
+import { ProductDashboardComponent } from '../products/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { DashboardComponent } from '../products/dashboard/dashboard.component';
     Child1Component,
     Child2Component,
     BookCardComponent,
-    DashboardComponent
+    BookDashboardComponent,
+    ProductCardComponent,
+    ProductDashboardComponent,
   ],
   imports: [
     MainRoutingModule,

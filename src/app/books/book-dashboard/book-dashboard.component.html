@@ -1,0 +1,9 @@
+<div class="mt-2 mb-2">
+    <input type="number" [(ngModel)]="bookid">
+    <button (click)="searchBook()">Find Book</button>
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3">
+    <div class="col-sm-6" *ngFor="let book of bookArray">
+      <app-book-card [book]="book" (clickEmitter)="visitLink(book.link)"></app-book-card>
+    </div>
+  </div>

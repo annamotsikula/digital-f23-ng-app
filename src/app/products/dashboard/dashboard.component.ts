@@ -7,7 +7,7 @@ import { ProductService } from 'src/app/core/services/http.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class ProductDashboardComponent implements OnInit {
   productList: Product[] = []
   constructor(private _productService: ProductService) {
     
