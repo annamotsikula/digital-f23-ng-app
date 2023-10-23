@@ -1,26 +1,78 @@
-<div class="container">
-    <a routerLink="../">Go back</a> <br>
-    <div class="d-flex w-75 m-auto" *ngIf="product">
-        <div class="images">
-            <img [src]="product.thumbnail" alt="Main Photo" class="main-img">
-            <div class="img-preview d-flex" >
-                <img [src]="img" alt="" *ngFor="let img of product.images">
+  <section class="py-5">
+    <div class="container">
+      <div class="row gx-5">
+        <aside class="col-lg-6">
+          <div class="border rounded-4 mb-3 d-flex justify-content-center" style="height: 350px;">
+            <a class="rounded-4" target="_blank">
+              <img style="max-width: 100%; max-height: 100%; margin: auto;" class="rounded-4 fit" [src]="product.images[0]" />
+            </a>
+          </div>
+          <div class="d-flex justify-content-center mb-3">
+            <a class="border mx-1 rounded-2 ms-1 item-thumb" data-type="image" *ngFor="let img of product.images">
+              <img width="60" height="60" class="rounded-2" [src]="img" />
+            </a>
+          </div>
+        </aside>
+        <main class="col-lg-6">
+          <div class="ps-lg-3">
+            <h4 class="title text-dark">
+              {{product.title}}
+            </h4>
+            <div class="d-flex flex-row my-3">
+              <div class="text-warning mb-1 me-2">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ms-1">
+                  {{product.rating}}
+                </span>
+              </div>
+              <span class="text-muted"><i class="bi bi-cart2 mx-1"></i>{{ product.stock }} orders</span>
+              <span class="text-success ms-2">In stock</span>
             </div>
-        </div>
-        <div class="ms-4 information">
-            <h3>{{ product.title | titlecase }}</h3>
-            <div>
-                <p>{{product.description}}</p>
-                <span>{{product.price | currency }}</span>
-                <span>Rating: {{product.rating }}</span>
-                <span>Category: {{product.category  }}</span>
-                <span>Stock : {{product.stock  }}</span>
-                <span>Discount : {{product.discountPercentage }}</span>
-                <span>New Discount price : {{product.discountPrice | currency }}</span>
+  
+            <div class="mb-3">
+              <span class="h5">{{ product.price | currency}}</span>
+              <span class="text-muted">/per</span>
             </div>
+  
+            <p>
+             {{ product.description }}
+            </p>
+  
+            <div class="row">
+              <dt class="col-3">Category:</dt>
+              <dd class="col-9">{{ product.category | titlecase }}</dd>
     
-            
-        </div>
-    
+              <dt class="col-3">Brand:</dt>
+              <dd class="col-9">{{ product.brand | titlecase }}</dd>
+            </div>
+  
+            <hr />
+  
+            <div class="row mb-4">
+              <div class="col-md-4 col-6 mb-3">
+                <label class="mb-2 d-block">Quantity</label>
+                <div class="input-group mb-3" style="width: 170px;">
+                  <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+                    <i class="bi bi-dash"></i>
+                  </button>
+                  <input type="text" class="form-control text-center border border-secondary" placeholder="14" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                  <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                    <i class="bi bi-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
+            <a href="#" class="btn btn-primary shadow-0 ms-2"> <i class="bi bi-cart2"></i> Add to cart </a>
+            <a href="#" class="btn btn-light border border-secondary icon-hover ms-2"> <i class="bi bi-suit-heart-fill"></i> Save </a>
+          </div>
+        </main>
+      </div>
     </div>
-</div>
+  </section>
+
+  
