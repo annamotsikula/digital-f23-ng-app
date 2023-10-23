@@ -14,6 +14,7 @@ import { ProductCardComponent } from '../products/product-card/product-card.comp
 import { BookDashboardComponent } from '../books/book-dashboard/book-dashboard.component';
 import { ProductDashboardComponent } from '../products/dashboard/dashboard.component';
 import { ProductDetailsComponent } from '../products/product-details/product-details.component';
+import { RatingStarsComponent } from '../rating-stars/rating-stars.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ProductDetailsComponent } from '../products/product-details/product-det
     ProductCardComponent,
     ProductDashboardComponent,
     ProductDetailsComponent,
+    RatingStarsComponent,
   ],
   imports: [
     MainRoutingModule,
@@ -36,6 +38,6 @@ import { ProductDetailsComponent } from '../products/product-details/product-det
     FormsModule,
     ReactiveFormsModule
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent, RatingStarsComponent]
 })
 export class MainModule { }

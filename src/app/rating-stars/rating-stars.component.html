@@ -1,0 +1,15 @@
+<div class="text-warning mb-1 me-2">
+    <i class="bi"
+     *ngFor="let star of [1,2,3,4,5]; let i = index" 
+     [ngClass]="{
+        'bi-star-fill' : rate >= i + 1,
+        'bi-star-half' : rate > i && rate < i + 1
+     }"
+     >
+    </i>
+    <span class="ms-1">
+        {{rate}}
+    </span>
+</div>
+<!-- bi-star-half -->
+<!-- bi-star-fill -->

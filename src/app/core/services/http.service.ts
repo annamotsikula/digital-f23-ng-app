@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, map, tap } from "rxjs";
 import { Product, ProductList } from "../interfaces/product.interface";
@@ -40,5 +40,14 @@ export class ProductService {
         return this._http.put(`${BASE_URL}/products/${id}`, {
             description: updatedValue
         }, { headers })
+    }
+
+    searchByKey(key: string): Observable<Product[]> {
+        const params = new HttpParams();
+        params.set('q', key);
+        console.log(params)
+        return this._http.get<ProductList>(`${BASE_URL}/products/search?q=${key}`).pipe(
+            map(result => result.products)
+        )
     }
 }
