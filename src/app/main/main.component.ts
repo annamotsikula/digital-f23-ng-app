@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookArray = this.getBooks();
-    this._storageService.setItem('my fav book', this.bookArray[0])
+    // this._storageService.setItem('my fav book', this.bookArray[0])
     
   }
 

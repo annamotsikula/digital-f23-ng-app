@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,21 +12,26 @@ import { Router } from '@angular/router';
 export class SignInComponent {
   email: string = ""
   password: string = ""
-  form: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl('')
-  })
+  // form: FormGroup = new FormGroup({
+  //   email: new FormControl(''),
+  //   password: new FormControl('')
+  // })
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _auth: AuthService) {}
 
   onSignIn(form: NgForm) {
-    // console.log(form)
+    const { email, password, rememberUser } = form.value
+    console.log(form.value)
 
-    // if(this.form.value.email !== "" && this.form.value.password !== "") {
-      this._router.navigate(['main'])
-    // } else {
-      // alert('Please Fill all the fields')
-    // }
+    if(email !== "" && password !== "") {
+      this._auth.authUser({ username: email, password, rememberUser})
+      .subscribe(result => {
+        console.log(result)
+        this._router.navigate(['main'])
+      })
+    } else {
+      alert('Please Fill all the fields')
+    }
   }
 
 }

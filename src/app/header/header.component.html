@@ -4,5 +4,8 @@
       <a [routerLink]="nav.path" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" aria-current="page">{{nav.title}}</a>
     </li>
  </ul>
-<button class="btn btn-info" (click)="gotoAuth()">Sign In</button>
+ <div class="auth">
+  <button class="btn btn-warning" (click)="logOut()">Sign Out</button>
+   <button class="btn btn-info ms-2" (click)="gotoAuth()">Sign In</button>
+ </div>
 </header>

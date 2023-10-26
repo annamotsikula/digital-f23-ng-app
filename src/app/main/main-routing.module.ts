@@ -4,10 +4,12 @@ import { MainComponent } from './main.component';
 import { ProductDashboardComponent } from '../products/dashboard/dashboard.component';
 import { BookDashboardComponent } from '../books/book-dashboard/book-dashboard.component';
 import { ProductDetailsComponent } from '../products/product-details/product-details.component';
+import { authGuard } from '../core/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: 'products',

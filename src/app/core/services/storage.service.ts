@@ -10,18 +10,16 @@ export class LocalStorageSevice {
     }
 
     getLocalItem(key: string) {
-        return this._storage.getItem(key) || undefined
+        return JSON.parse(JSON.stringify(this._storage.getItem(key))) || undefined
     }
 
     setItem(key: string, value: number|string|Object) {
-        const setValue = JSON.stringify(value)
-        this._storage.setItem(key, setValue)
+        const setValue = ( value === typeof 'string') ? value : JSON.stringify(value)
+        this._storage.setItem(key, setValue as string)
     }
-
     removeItem(key:string) {
         this._storage.removeItem(key)
     }
-
     itemExist(key: string): boolean {
         return !!this.getLocalItem(key)
     }

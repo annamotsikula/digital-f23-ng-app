@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { authGuard, authenticationGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: SignInComponent,
+    canActivate: [authenticationGuard]
   },
   {
     path: 'sign-in',
@@ -20,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    loadChildren: () => import('./main/main.module').then(m=> m.MainModule)
+    loadChildren: () => import('./main/main.module').then(m=> m.MainModule),
   },
   {
     path: '**',
