@@ -17,10 +17,10 @@
       <div>
         <h6 class="mb-2">description</h6>
         <p class="card-text">{{ product.description | truncate: 8 }}</p>
-        <div>
+        <!-- <div>
           <input type="text" placeholder="Update description" [formControl]="formControlName">
           <button (click)="submit()">Submit</button>
-        </div>
+        </div> -->
         <!-- <span class="badge border rounded-pill" 
               [ngClass]="product.stock > 5 ? 
               'bg-success-subtle border border-success-subtle text-success-emphasis' : 

@@ -8,18 +8,17 @@ export class ServerInterceptor extends LocalStorageSevice implements HttpInterce
         super();
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log('Request In Interceptor',req)
+        // console.log('Request In Interceptor',req)
         let token = (<string>this.getLocalItem(authToken))
         if(token) {
             token = token.slice(1,-1)
         }
-            console.log('Token is stored in LocalStorage')
+            // console.log('Token is stored in LocalStorage')
             const newReq = req.clone({
                 setHeaders: { 'Authorization' : `Bearer ${token}`}
             })
             return next.handle(newReq).pipe(
                 catchError((err: HttpErrorResponse) => throwError(() => new Error(err.message)) ),
-                tap(console.log)
             )
 
         

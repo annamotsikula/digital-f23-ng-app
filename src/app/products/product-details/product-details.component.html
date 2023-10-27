@@ -1,4 +1,4 @@
-<section class="py-5" *ngIf="product">
+<section class="py-5">
   <div class="container">
     <div class="row gx-5">
       <aside class="col-lg-6">
@@ -112,7 +112,7 @@
               </div>
             </div>
             <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-            <a href="#" class="btn btn-primary shadow-0 ms-2">
+            <a class="btn btn-primary shadow-0 ms-2" (click)="addToCart()">
               <i class="bi bi-cart2"></i> Add to cart
             </a>
             <a

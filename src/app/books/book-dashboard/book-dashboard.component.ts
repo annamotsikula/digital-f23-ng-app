@@ -6,7 +6,7 @@ import { LocalStorageSevice } from 'src/app/core/services/storage.service';
 @Component({
   selector: 'app-book-dashboard',
   templateUrl: './book-dashboard.component.html',
-  styleUrls: ['./book-dashboard.component.scss']
+  styleUrls: ['./book-dashboard.component.scss'],
 })
 export class BookDashboardComponent implements OnInit {
   bookArray: Book[] = []

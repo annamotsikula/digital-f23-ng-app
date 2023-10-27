@@ -5,6 +5,9 @@ import { ProductDashboardComponent } from '../products/dashboard/dashboard.compo
 import { BookDashboardComponent } from '../books/book-dashboard/book-dashboard.component';
 import { ProductDetailsComponent } from '../products/product-details/product-details.component';
 import { authGuard } from '../core/guards/auth.guard';
+import { productResolver } from '../core/resolvers/product.resolver';
+import { ProductCardComponent } from '../products/product-card/product-card.component';
+import { CartComponent } from '../products/cart/cart.component';
 const routes: Routes = [
   {
     path: '',
@@ -22,8 +25,13 @@ const routes: Routes = [
       },
       {
         path: 'products/:id',
-        component: ProductDetailsComponent 
+        component: ProductDetailsComponent ,
+        resolve: { productDetails: productResolver}
 
+      },
+      {
+        path: 'cart',
+        component: CartComponent 
       },
       {
         path: 'books',

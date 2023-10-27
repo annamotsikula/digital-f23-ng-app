@@ -21,12 +21,12 @@ export class SignInComponent {
 
   onSignIn(form: NgForm) {
     const { email, password, rememberUser } = form.value
-    console.log(form.value)
+    // console.log(form.value)
 
     if(email !== "" && password !== "") {
       this._auth.authUser({ username: email, password, rememberUser})
       .subscribe(result => {
-        console.log(result)
+        // console.log(result)
         this._router.navigate(['main'])
       })
     } else {

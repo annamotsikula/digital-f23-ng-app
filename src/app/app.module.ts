@@ -8,6 +8,7 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { AppRoutingRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerInterceptor } from './core/services/http.interceptor';
+import { BASE_URL } from './core/constants/constants';
 
 
 @NgModule({
@@ -25,6 +26,8 @@ import { ServerInterceptor } from './core/services/http.interceptor';
     HttpClientModule
   ],
   providers: [
+    // {provide: ProductService, useClass: TestService },
+    { provide: BASE_URL, useValue: 'https://dummyjson.com'},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerInterceptor,

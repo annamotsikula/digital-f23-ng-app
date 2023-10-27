@@ -62,8 +62,8 @@ export class SignUpComponent {
 
   submit() {
     if (this.signUpForm.valid) {
-      console.log(this.signUpForm);
-      console.log(this.signUpForm.getRawValue())
+      // console.log(this.signUpForm);
+      // console.log(this.signUpForm.getRawValue())
 
     } else {
       alert("The form is not valid")

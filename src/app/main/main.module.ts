@@ -15,6 +15,8 @@ import { BookDashboardComponent } from '../books/book-dashboard/book-dashboard.c
 import { ProductDashboardComponent } from '../products/dashboard/dashboard.component';
 import { ProductDetailsComponent } from '../products/product-details/product-details.component';
 import { RatingStarsComponent } from '../rating-stars/rating-stars.component';
+import { BadgeComponent } from '../products/badge/badge.component';
+import { CartComponent } from '../products/cart/cart.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { RatingStarsComponent } from '../rating-stars/rating-stars.component';
     ProductDashboardComponent,
     ProductDetailsComponent,
     RatingStarsComponent,
+    BadgeComponent,
+    CartComponent,
   ],
   imports: [
     MainRoutingModule,

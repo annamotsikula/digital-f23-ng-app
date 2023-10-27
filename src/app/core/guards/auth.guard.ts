@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 
 export const authGuard: CanActivateFn = () => {
@@ -8,15 +8,14 @@ export const authGuard: CanActivateFn = () => {
   if(authService.isAuthorized()) {
     return true
   }
-  router.navigate(['/'])
-  return false;
+  return router.parseUrl('/');
 };
  
 export const authenticationGuard : CanActivateFn = () => {
   const authService = inject(AuthService);
   const router = inject(Router)
   if(authService.userAuthAlreadyDone()) {
-    router.navigate(['/main']);
+    return router.parseUrl('main');
   }
   return true
 
