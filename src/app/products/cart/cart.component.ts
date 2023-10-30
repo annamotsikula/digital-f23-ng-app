@@ -10,13 +10,19 @@ import { ProductService } from 'src/app/core/services/http.service';
 })
 export class CartComponent {
   cartProducts : Product[] = []
-  cartProductsSubs$!: Subscription
+  cartProductsSubs$!: Subscription;
+  totalPrice!: number
   constructor(private _productService: ProductService) {
     this._productService.cartProducts$.pipe(
       switchMap(res => this.getCartProducts(res))
     )
     .subscribe(data => {
-      this.cartProducts = data
+      this.cartProducts = data;
+      if(data) {
+       this.totalPrice = this.cartProducts.reduce((sum, product) => 
+          sum + product.price
+        , 0)
+      }
       console.log(data)
       
       // data.forEach(i => {
@@ -37,7 +43,9 @@ ngOnInit() {
   }
 
   ngOnDestroy() {
-    this.cartProductsSubs$.unsubscribe()
+    if (this.cartProductsSubs$) {
+      this.cartProductsSubs$.unsubscribe()
+    }
   }
 
 }

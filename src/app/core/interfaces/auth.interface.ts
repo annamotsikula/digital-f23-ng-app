@@ -14,4 +14,5 @@ export interface UserData {
     lastName: string,
     gender: string,
     image: string,
+    isAdmin? : boolean
 }

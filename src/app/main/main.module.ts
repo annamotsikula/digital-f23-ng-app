@@ -10,9 +10,9 @@ import { BookCardComponent } from '../books/book-card/book-card.component';
 import { TruncatePipe } from '../core/pipes/truncate.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
-import { ProductCardComponent } from '../products/product-card/product-card.component';
+// import { ProductCardComponent } from '../products/product-card/product-card.component';
 import { BookDashboardComponent } from '../books/book-dashboard/book-dashboard.component';
-import { ProductDashboardComponent } from '../products/dashboard/dashboard.component';
+// import { ProductDashboardComponent } from '../products/dashboard/dashboard.component';
 import { ProductDetailsComponent } from '../products/product-details/product-details.component';
 import { RatingStarsComponent } from '../rating-stars/rating-stars.component';
 import { BadgeComponent } from '../products/badge/badge.component';
@@ -24,13 +24,12 @@ import { CartComponent } from '../products/cart/cart.component';
     MainComponent,
     HomeComponent,
     HeaderComponent,
-    TruncatePipe,
     Child1Component,
     Child2Component,
     BookCardComponent,
     BookDashboardComponent,
-    ProductCardComponent,
-    ProductDashboardComponent,
+    // ProductCardComponent,
+    // ProductDashboardComponent,
     ProductDetailsComponent,
     RatingStarsComponent,
     BadgeComponent,
@@ -40,7 +39,8 @@ import { CartComponent } from '../products/cart/cart.component';
     MainRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TruncatePipe,
   ],
   exports: [HeaderComponent, RatingStarsComponent]
 })

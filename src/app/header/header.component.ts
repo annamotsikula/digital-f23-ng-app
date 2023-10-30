@@ -32,7 +32,8 @@ export class HeaderComponent extends LocalStorageSevice implements OnInit  {
   }
 
   logOut() {
-    this.removeItem(authToken);
+    // this.removeItem(authToken);
+    this.clearAll();
     this._router.navigate([''])
     
   }

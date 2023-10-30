@@ -1,12 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { debounceTime, tap } from 'rxjs';
 import { Product } from 'src/app/core/interfaces/product.interface';
+import { TruncatePipe } from 'src/app/core/pipes/truncate.pipe';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss']
+  styleUrls: ['./product-card.component.scss'],
+  standalone: true,
+  imports: [CommonModule, TruncatePipe]
 })
 export class ProductCardComponent {
  @Input() product!: Product;

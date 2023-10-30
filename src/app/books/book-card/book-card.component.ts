@@ -7,7 +7,7 @@ import { Book } from 'src/app/core/interfaces/book.interface';
   styleUrls: ['./book-card.component.scss']
 })
 export class BookCardComponent {
- @Input() book!: Book 
+ @Input({required: true}) book!: Book 
  @Output() clickEmitter: EventEmitter<void> = new EventEmitter<void>()
 
  onClick() {

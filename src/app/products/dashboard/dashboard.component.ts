@@ -1,13 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, fromEvent, map, of, switchMap, tap } from 'rxjs';
 import { Product } from 'src/app/core/interfaces/product.interface';
 import { ProductService } from 'src/app/core/services/http.service';
+import { ProductCardComponent } from '../product-card/product-card.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  standalone: true,
+  imports: [CommonModule, ProductCardComponent]
 })
 export class ProductDashboardComponent implements OnInit {
   productList: Product[] = [];

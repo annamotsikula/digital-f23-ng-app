@@ -24,9 +24,9 @@ export class SignInComponent {
     // console.log(form.value)
 
     if(email !== "" && password !== "") {
-      this._auth.authUser({ username: email, password, rememberUser})
+      this._auth.authUser({ username: 'hbingley1', password: 'CQutx25i8r', rememberUser})
       .subscribe(result => {
-        // console.log(result)
+        console.log(result)
         this._router.navigate(['main'])
       })
     } else {
